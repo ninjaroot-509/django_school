@@ -1,0 +1,130 @@
+{% extends "classroom/basepa.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% block titled %}
+    {% if classe %}
+    {{ classe.classe_name }} courses
+    {% else %}
+        tout les cours
+    {% endif %}
+{% endblock titled %}
+
+{% block content %}
+<section class="grey page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <h1>Page Liste des cours</h1>
+            </div>
+    <div class="col-md-6 text-right">
+    <div class="bread"><div class="container">
+            <div class="col-md-6 text-right">
+                <div class="bread">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Acceuil</a></li>
+                        <li><a href="#">Cours</a></li>
+                        <li class="active">Page Liste des cours</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="white section">
+<div class="container">
+    <div class="row course-list">
+        {% for course in courses %}
+            {% with classe=course.classe %}
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="shop-item-list entry">
+                <div class="">
+                    <a href="{% url 'course:course_detail' course.slug %}">
+                    <img src="{{course.prof.profile.photo.url}}" alt="">
+                    </a>
+                </div>
+                <div class="shop-item-title clearfix">
+                    <h4>
+                        <a href="{% url 'course:course_detail' course.slug %}">
+                            {{ course.titre }}
+                        </a>
+                    </h4>
+                    <div class="shopmeta">
+                    <span class="pull-left">{{ course.total_modules }} Modules</span>
+                        <div class="rating pull-right">
+                            <span>{{ course.created | date:"d M" }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="visible-buttons">
+                    <a title="voir plus" href="{% url 'course:course_detail' course.slug %}"><span class="fa fa-search"></span></a>
+                </div>
+            </div>
+        </div>
+        {% endwith %}
+    {% endfor %}
+</div>
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="text-center">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li active><a href="#">2</a></li>
+                    <li>
+                        <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="grey section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h4>Happy Students</h4>
+                    <p>What Our Students Say About LearnPLUS</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="testimonial">
+                    <img class="alignleft img-circle" src="upload/xstudent_01.png.pagespeed.ic.756JwMcqdq.png" alt="">
+                <p>Lorem Ipsum is simply dummy text of the printing and industry. </p>
+                <div class="testimonial-meta">
+                    <h4>John DOE <small><a href="#">.com</a></small></h4>
+                </div>
+                </div>
+            </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="testimonial">
+                <img class="alignleft img-circle" src="upload/xstudent_02.png.pagespeed.ic.y-PM-y4pVj.png" alt="">
+                    <p>Lorem Ipsum is simply dummy text of the most popular items.</p>
+                        <div class="testimonial-meta">
+                            <h4>Jenny Anderson <small><a href="#">photodune.com</a></small></h4>
+                        </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="testimonial">
+                <img class="alignleft img-circle" src="upload/xstudent_03.png.pagespeed.ic.uCQY3WNMCJ.png" alt="">
+                <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                    <div class="testimonial-meta">
+                        <h4>Mark BOBS <small><a href="#">tutsplus.com</a></small></h4>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-wrapper text-center">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since<br> the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+            <a href="#" class="btn btn-default border-radius"><i class="fa fa-sign-in"></i> Join Us Today</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" class="btn btn-primary"><i class="fa fa-download"></i> Download PDF</a>
+    </div>
+</div>
+</section>
+{% endblock %}

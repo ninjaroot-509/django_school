@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>elearning - {% block title %} {% endblock %}</title>
+    <link href="{% static 'styles/styles.css' %}" rel="stylesheet">
+    <link rel="manifest" href="{% static 'manifest.json' %}">
+</head>
+<body class="flex flex-col min-h-screen">
+  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <img alt="ele@rning" width="30" title="ele@rning" src="{% static 'images/pwa/icon-72x72.png' %}">
+      <span class="font-semibold text-xl tracking-tight">ele@rning</span>
+    </div>
+    <div class="block lg:hidden">
+      <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      </button>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Learn
+        </a>
+        <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Videos
+        </a>
+        {% if request.user.is_authenticated and request.user.is_student %}
+          <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            My Quizzes
+          </a>
+          <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            My Courses
+          </a>
+        {% endif %}
+        {% if request.user.is_authenticated and request.user.is_teacher or request.user.is_staff %}
+          <a href="{% url 'course:manage_course_list' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            Manage courses
+          </a>
+          <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            Manage quizzes
+          </a>
+        {% endif %}
+      </div>
+      <div>
+        {% if request.user.is_authenticated %}
+          <div class="relative group mx-1 px-1 group inline-block">
+            <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+              My account
+              <svg class="ml-2 h-6 w-6 text-white inline-block" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z" />
+              </svg>
+            </a>
+            <ul class="absolute right-0 top-0 mt-8 p-2 rounded-lg shadow-lg bg-white z-10 hidden group-hover:block">
+              <svg class="block fill-current text-white w-4 h-4 absolute right-0 top-0 mr-6 -mt-3 z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+              <li class="p-1">
+                <div class="flex items-center px-6 py-4">
+                  <img class="h-10 w-10 rounded-full flex-no-shrink" src="" alt="{{ request.user.username }}" />
+                  <div class="ml-4">
+                    <p class="font-semibold text-gray-900 leading-none">{{ request.user.username }}</p>
+                    <p><a href="" class="text-sm text-gray-600 leading-none hover:underline">View Profile' %}</a></p>
+                  </div>
+                </div>
+              </li>
+              <li class="p-1 whitespace-no-wrap rounded-full text-sm md:text-base text-gray-600 hover:text-gray-800 hover:bg-gray-100">
+                  <a class="px-2 py-1" href="">
+                      <span class="">Notifications</span>
+                  </a>
+              </li>
+              <li class="p-1 whitespace-no-wrap rounded-full text-sm md:text-base text-gray-600 hover:text-gray-800 hover:bg-gray-100">
+                  <a class="px-2 py-1" href="">
+                      <span class="">Messages</span>
+                  </a>
+              </li>
+              <li class="p-1 whitespace-no-wrap rounded-full text-sm md:text-base text-gray-600 hover:text-gray-800 hover:bg-gray-100">
+                  <a class="px-2 py-1" href="">
+                      <span class="">My recommended courses</span>
+                  </a>
+              </li>
+              <li class="p-1 whitespace-no-wrap rounded-full text-sm md:text-base text-gray-600 hover:text-gray-800 hover:bg-gray-100">
+                  <a class="px-2 py-1" href="">
+                      <span class="">Edit account</span>
+                  </a>
+              </li>
+            </ul>
+          </div>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'logout' %}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Logout' %}</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login' %}</a>
+          <a href="{% url 'signup' %}" class="inline-block text-sm px-4 ml-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Register' %}</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+    <main id="content" class="flex-grow">
+
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                <div {% if message.tags %} class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative alert alert-{{ message.tags }} alert-dismissible" {% endif %} role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+
+      <!-- Notif offline -->
+      <div
+        class="notification"
+        id="notification"
+        aria-live="assertive"
+        aria-relevant="text"
+        hidden>
+      </div>
+    </main>
+
+    <footer class="bg-white py-8 w-full">
+      <div class="container mx-auto px-8">
+          <div class="table w-full">
+              <div class="block text-center sm:table-cell">
+                  <p class="uppercase text-grey text-sm sm:mb-6">Links' %}</p>
+                  <ul class="list-reset text-xs mb-6">
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="#" class="text-grey hover:text-grey-dark">FAQ' %}</a>
+                      </li>
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="#" class="text-grey hover:text-grey-dark">Help' %}</a>
+                      </li>
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="#" class="text-grey hover:text-grey-dark">Support' %}</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="block text-center sm:table-cell">
+                  <p class="uppercase text-grey text-sm sm:mb-6">Legal' %}</p>
+                  <ul class="list-reset text-xs mb-6">
+                    
+                    {% for page in flatpages %}
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="{{ page.url }}" class="text-grey hover:text-grey-dark">{{ page.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+              </div>
+              <div class="block text-center sm:table-cell">
+                  <p class="uppercase text-grey text-sm sm:mb-6">Social' %}</p>
+                  <ul class="list-reset text-xs mb-6">
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="https://www.linkedin.com/in/delitamakanda/" target="_blank" class="text-grey hover:text-grey-dark">Linkedin' %}</a>
+                      </li>
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="https://twitter.com/delitamakanda" target="_blank"  class="text-grey hover:text-grey-dark">Twitter' %}</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="block text-center sm:table-cell">
+                  <p class="uppercase text-grey text-sm sm:mb-6">Company' %}</p>
+                  <ul class="list-reset text-xs mb-6">
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="https://blog-myelearning.netlify.com" target="_blank" class="text-grey hover:text-grey-dark">Official Blog' %}</a>
+                      </li>
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="" class="text-grey hover:text-grey-dark">About Us' %}</a>
+                      </li>
+                      <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
+                          <a href="" class="text-grey hover:text-grey-dark">Contact' %}</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </footer>
+
+    <section id="footer">
+      <div class="flex justify-center border-t-2 py-2">
+        <div class="text-center">
+        &copy; elearning 2017 -' %} <span id="copyright"></span>
+        </div>
+      </div>
+    </section>
+
+    <script src="{% static 'scripts/libs/jquery.min.js' %}"></script>
+    <script src="{% static 'scripts/main.min.js' %}"></script>
+    <script>
+    $(document).ready(function() {
+        {% block domready %}
+        {% endblock %}
+    });
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register("", { scope: '/static/' }).then(function(res) {
+            console.log("sw installed !" + res.scope);
+        }).catch(function(error) {
+            console.log("sw failed" + error);
+        });
+    }
+
+    var copyrightDate = new Date().getFullYear();
+    var footerDiv = document.getElementById("copyright");
+    footerDiv.innerHTML = copyrightDate;
+    </script>
+</body>
+</html>

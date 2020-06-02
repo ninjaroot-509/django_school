@@ -1,0 +1,192 @@
+ {% extends 'classroom/basepa.html' %} 
+ {% load crispy_forms_tags %} 
+ {% load static %}
+ {% block content %}
+<section class="grey page-title">
+<div class="container">
+<div class="row">
+<div class="col-md-6 text-left">
+<h1>Profile</h1>
+</div>
+<div class="col-md-6 text-right">
+<div class="bread">
+<ol class="breadcrumb">
+<li><a href="#">Acceuil</a></li>
+<li><a href="#">Profile</a></li>
+<li class="active">Profile-Edit</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white section">
+<div class="container">
+<div class="row">
+<div id="course-left-sidebar" class="col-md-3">
+<div class="course-image-widget">
+<img src="{{user.profile.photo.url}}" alt="" class="img-responsive">
+</div>
+<div class="course-meta">
+<p>{{user.last_name}} {{user.first_name}}</p>
+</div>
+</div>
+<div id="course-content" class="col-md-9">
+<div class="course-description">
+<h3 class="course-title">Profile Edit</h3>
+<p>{{user.profile.bio}}</p>
+<div class="edit-profile">
+<form action="." method="post" enctype="multipart/form-data">
+{% csrf_token %} 
+<div class="form-group">
+<label>Nom</label>
+<input type="text" class="form-control" name="last_name" id="id_last_name" placeholder="{{user.last_name}}">
+</div>
+<div class="form-group">
+<label>Prenom</label>
+<input type="text" class="form-control" name="first_name" id="id_first_name" placeholder="{{user.first_name}}">
+</div>
+<div class="form-group">
+<label>Nom d'utilisateur</label>
+<input type="text" class="form-control" name="username" id="id_username" placeholder="{{user.username}}">
+</div>
+<div class="form-group">
+<label>Addresse Email</label>
+<input type="email" class="form-control" name="email" id="id_email" placeholder="{{user.email}}">
+</div>
+<div class="form-group">
+<label>Votre addresse</label>
+<input type="text" class="form-control" name="addresse" id="id_addresse" placeholder="{{user.profile.addresse}}">
+</div>
+<div class="form-group">
+<label>Votre numero</label>
+<input type="text" class="form-control" name="numero" id="id_numero" placeholder="{{user.profile.numero}}">
+</div>
+<div class="form-group">
+<label>Biographie</label>
+<textarea type="text" class="form-control" name="bio" id="id_bio" placeholder="{{user.profile.bio}}"></textarea>
+</div>
+<div class="form-group">
+<label>Photo profile</label>
+<input type="file" class="btn btn-primary" name="photo" id="id_photo">
+</div>
+<button type="submit" class="btn btn-primary">Saves</button>
+</form>
+</div>
+</div>
+<hr class="invis">
+<div class="other-courses">
+<img src="{% static 'classroom/images/xothers.png.pagespeed.ic.BLyi2PaMRC.png' %}" alt="" class="">
+</div>
+</div>
+</div>
+<hr class="invis">
+<div id="owl-featured" class="owl-custom">
+<div class="owl-featured">
+<div class="shop-item-list entry">
+<div class="">
+<img src="upload/xcourse_01.png.pagespeed.ic.XTOvCuUmZu.png" alt="">
+<div class="magnifier">
+</div>
+</div>
+<div class="shop-item-title clearfix">
+<h4><a href="course-single.html">Learn Web Design & Development</a></h4>
+<div class="shopmeta">
+<span class="pull-left">12 Student</span>
+<div class="rating pull-right">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+</div>
+</div>
+<div class="visible-buttons">
+<a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+<a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+</div>
+</div>
+</div>
+<div class="owl-featured">
+<div class="shop-item-list entry">
+<div class="">
+<img src="upload/xcourse_02.png.pagespeed.ic.PL7Wu2UcSB.png" alt="">
+<div class="magnifier">
+</div>
+</div>
+<div class="shop-item-title clearfix">
+<h4><a href="course-single.html">Graphic Design & Logo Mockups Course</a></h4>
+<div class="shopmeta">
+<span class="pull-left">21 Student</span>
+<div class="rating pull-right">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star-o"></i>
+</div>
+</div>
+</div>
+<div class="visible-buttons">
+<a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+<a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+</div>
+</div>
+</div>
+<div class="owl-featured">
+<div class="shop-item-list entry">
+<div class="">
+<img src="upload/xcourse_03.png.pagespeed.ic.8e1MyY5M7i.png" alt="">
+<div class="magnifier">
+</div>
+</div>
+<div class="shop-item-title clearfix">
+<h4><a href="course-single.html">Social Media Network & Marketing</a></h4>
+<div class="shopmeta">
+<span class="pull-left">98 Student</span>
+<div class="rating pull-right">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star-o"></i>
+</div>
+</div>
+</div>
+<div class="visible-buttons">
+<a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+<a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+</div>
+</div>
+</div>
+<div class="owl-featured">
+<div class="shop-item-list entry">
+<div class="">
+<img src="upload/xcourse_04.png.pagespeed.ic.2rIKmUwjA7.png" alt="">
+<div class="magnifier">
+</div>
+</div>
+<div class="shop-item-title clearfix">
+<h4><a href="course-single.html">WordPress Blogging, Tumblr and Blogger</a></h4>
+<div class="shopmeta">
+<span class="pull-left">98 Student</span>
+<div class="rating pull-right">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star-o"></i>
+</div>
+</div>
+</div>
+<div class="visible-buttons">
+<a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+<a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

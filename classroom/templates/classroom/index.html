@@ -1,0 +1,510 @@
+{% extends 'classroom/basepa.html' %}
+{% block titled %}La-Belle-Lune {{user.username}} | Acceuil{% endblock titled %}
+{% load static %}
+
+{% block content %}
+    
+    <section class="slider-section">
+        <div class="slider-item" style="background-image:url({% static 'classroom/upload/xslider_new_01.jpg.pagespeed.ic.RgCY2ieSzC.jpg' %});">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-12 text-center ftco-animate" style="">
+            <h1 class="mb-4">  Un enfant, un professeur,<br> un livre, un crayon<br> peuvent <span>changer le monde.</span></h1>
+            {% if request.user.is_authenticated %}
+            {% if user.is_student %}
+            <a href="{% url 'students:student_course_list' %}" class="btn btn-default">Voir mes cours</a>
+            {% elif user.is_teacher %}
+            <a href="" class="btn btn-default">Voir la list de mes cours</a>
+            {% else %}
+            {% endif %}
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn-default">Connecter maintenant</a>
+            {% endif %}
+          </div>
+        </div>
+        </div>
+      </div>
+
+  </section>
+  
+  
+  <section class="white section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title text-center">
+            <h4>Nos caractéristiques</h4>
+            <p>Tout simplement le système de gestion de l'apprentissage plus riche le plus en vedette</p>
+          </div>
+        </div>
+      </div>
+      <div class="row service-center">
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list border-radius">
+            <i class="fa fa-graduation-cap"></i>
+            <p><strong>Cours à plusieurs niveaux</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiing elit. Integer loectetur adipiing elit. Integer lectetur adipiing elit. Integer lrem quam..</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list border-radius">
+            <i class="fa fa-users"></i>
+            <p><strong>Plusieur type de compte</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiing elit. Integer loectetur adipiing elit. Integer lectetur adipiing elit. Integer lrem quam..</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list border-radius">
+            <i class="fa fa-question"></i>
+            <p><strong>Evaluation avancé</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiing elit. Integer loectetur adipiing elit. Integer lectetur adipiing elit. Integer lrem quam..</p>
+          </div>
+        </div>
+      </div>
+      <hr class="invis">
+      <div class="callout row">
+        <div class="col-md-9">
+          <h4><i class="fa fa-graduation-cap fa-3x alignleft"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">Vestibulum non</a><br> dolor ultricies, porttitor justo non.</h4>
+        </div>
+        <div class="col-md-3">
+          <a href="#" class="btn btn-primary btn-block">Entrer en contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% if request.user.is_authenticated and user.is_student %}
+  <section class="grey section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title text-center">
+            <h4>Cours pour classe {{object.classe.titre}}</h4>
+            <p>Listed Below Our Most Popular Courses</p>
+          </div>
+        </div>
+      </div>
+      <div id="owl-featured" class="owl-custom">
+        <div class="owl-featured">
+          <div class="shop-item-list entry">
+            <div class="">
+              <img src="{% static 'classroom/upload/xcourse_01.png.pagespeed.ic.XTOvCuUmZu.png' %}" alt="">
+              <div class="magnifier">
+              </div>
+            </div>
+            <div class="shop-item-title clearfix">
+              <h4><a href="course-single.html">Learn Web Design & Development</a></h4>
+              <div class="shopmeta">
+                <span class="pull-left">12 Student</span>
+                <div class="rating pull-right">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="visible-buttons">
+              <a title="Add to Cart" href="page-shop-cart.html"><span class="fa fa-cart-arrow-down"></span></a>
+              <a title="Read More" href="course-single.html"><span class="fa fa-search"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  <section class="section darkskin fullscreen paralbackground parallax" style="background-image:url(upload/xparallax_01.jpg.pagespeed.ic.JPVsQrTu6o.jpg)" data-img-width="1627" data-img-height="868" data-diff="100">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title text-center">
+            <h4>Le processus de travail</h4>
+            <p>lorem ipsun dolor sit amet consec tetur adisiping elit</p>
+          </div>
+        </div>
+      </div>
+      <div class="row service-center">
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list">
+            <i class="fa fa-graduation-cap"></i>
+            <p><strong>Cours à plusieurs niveaux</strong></p>
+            <p>Lorem ipsum m dolor sit amet, consectetur adipiing elit.dolor sit amet, consectetur adipiing elit. Integer lorem quam..</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list">
+            <i class="fa fa-users"></i>
+            <p><strong>Plusieur type de compte</strong></p>
+            <p>Lorem ipsum m dolor sit amet, consectetur adipiing elit.dolor sit amet, consectetur adipiing elit. Integer lorem quam..</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list">
+            <i class="fa fa-question"></i>
+            <p><strong>Evaluation avancé</strong></p>
+            <p>Lorem ipsum m dolor sit amet, consectetur adipiing elit.dolor sit amet, consectetur adipiing elit. Integer lorem quam..</p>
+          </div>
+        </div>
+      </div>
+      <div class="row button-wrapper">
+        <div class="col-md-12">
+          <div class="text-center">
+            <a href="#" class="btn btn-default">Start New Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="white section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title text-center">
+            <h4>Pourquoi modèle d'apprentissage?</h4>
+            <p>Listed Below Why Our Template Are Powerful and Easy to Use?</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="why-us text-right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+            <i class="fa fa-html5 alignright"></i>
+            <h4>HTML5 Technology</h4>
+            <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+          </div>
+          <div class="why-us text-right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.7s">
+            <i class="fa fa-laptop alignright"></i>
+            <h4>Works Any Devices</h4>
+            <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+          </div>
+          <div class="why-us text-right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.1s">
+            <i class="fa fa-home alignright"></i>
+            <h4>10 Beautiful Homepage</h4>
+            <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="image-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+            <img src="{% static 'classroom/upload/xdevice_02.png.pagespeed.ic.w5TutKGgkN.png' %}" alt="" class="img-responsive">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="why-us text-left wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <i class="fa fa-clock-o alignleft"></i>
+            <h4>Real Time Saver</h4>
+            <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+          </div>
+          <div class="why-us text-left wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.9s">
+            <i class="fa fa-gears alignleft"></i>
+            <h4>Powerful Options</h4>
+            <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+          </div>
+          <div class="why-us text-left wow fadeInRight" data-wow-duration="1s" data-wow-delay="1.3s">
+            <i class="fa fa-leaf alignleft"></i>
+            <h4>Easily Customisable</h4>
+            <p>Integer non dapibus fermentum nibh volutpat, accumsan purus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="grey section">
+    <div class="row-fluid">
+      <div class="col-md-6 myimg"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-container nopadding">
+              <div class="textrotate">
+                <ul class="bxslider">
+                  <li>
+                    <div class="big-title">
+                      <p class="lead">Vivamus quis sapien cura</p>
+                      <h3><span>WHO</span> WE ARE</h3>
+                      <div class="border-title"></div>
+                    </div>
+                    <p>Phasellus nec dolor.Sed ornare semper ipsum. Sed pede orci volutpat sed congue vels gravida non lacus.Vivamus quis sed metus quisque gravida Quisque blandit sem esed erat. Maecenas porttitor neque eu sem. Nullam lectus neque, blandit quis mattis quis varius eu eros. Vivamus ads metus. Mauris at tellus at sapien.</p>
+                    <a href="#" class="btn btn-default" title="">Learn More</a>
+                  </li>
+                  <li>
+                    <div class="big-title">
+                      <p class="lead">Vivamus quis sapien cura</p>
+                      <h3><span>WHAT</span> WE DO</h3>
+                      <div class="border-title"></div>
+                    </div>
+                    <p>Phasellus nec dolor.Sed ornare semper ipsum. Sed pede orci volutpat sed congue vels gravida non lacus.Vivamus quis sed metus quisque gravida Quisque blandit sem esed erat. Maecenas porttitor neque eu sem. Nullam lectus neque, blandit quis mattis quis varius eu eros. Vivamus ads metus. Mauris at tellus at sapien.</p>
+                    <a href="#" class="btn btn-default" title="">Get a Quote</a>
+                  </li>
+                  <li>
+                    <div class="big-title">
+                      <p class="lead">Vivamus quis sapien cura</p>
+                      <h3><span>OUR</span> MISSION</h3>
+                      <div class="border-title"></div>
+                    </div>
+                    <p>Phasellus nec dolor.Sed ornare semper ipsum. Sed pede orci volutpat sed congue vels gravida non lacus.Vivamus quis sed metus quisque gravida Quisque blandit sem esed erat. Maecenas porttitor neque eu sem. Nullam lectus neque, blandit quis mattis quis varius eu eros. Vivamus ads metus. Mauris at tellus at sapien.</p>
+                    <a href="#" class="btn btn-default" title="">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="white section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title text-center">
+            <h4>Rencontrez notre équipe</h4>
+            <p>Nous construisons ce platforme avec professionnalisme et amour</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="content-widget">
+            <div class="team-members row">
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="team">
+                  <img src="{% static 'classroom/upload/xteam_01.jpg.pagespeed.ic.uNKwi9Xmie.jpg' %}" alt="" class="img-responsive wow fadeInUp">
+                  <div class="team-hover-content">
+                    <h5>Bryan Kennedy</h5>
+                    <span>Project Manager</span>
+                    <p>Curabitur ultrices nec est nec vestibulum. Maecenas tincidunt pretium lacinia. Nullam purus dolor, tempor et lacinia quis, viverra quis erat.</p>
+                    <div class="social">
+                      <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+                      <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="#" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="team">
+                  <img src="{% static 'classroom/upload/xteam_02.jpg.pagespeed.ic.Foo3PN64df.jpg' %}" alt="" class="img-responsive wow fadeInUp">
+                  <div class="team-hover-content">
+                    <h5>Adam DEO</h5>
+                    <span>SEO Manager</span>
+                    <p>Curabitur ultrices nec est nec vestibulum. Maecenas tincidunt pretium lacinia. Nullam purus dolor, tempor et lacinia quis, viverra quis erat.</p>
+                    <div class="social">
+                      <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+                      <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="#" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="team">
+                  <img src="{% static 'classroom/upload/xteam_03.jpg.pagespeed.ic.Mw22RnI1eL.jpg' %}" alt="" class="img-responsive wow fadeInUp">
+                  <div class="team-hover-content">
+                    <h5>Jenny Kennedy</h5>
+                    <span>Advertising Manager</span>
+                    <p>Curabitur ultrices nec est nec vestibulum. Maecenas tincidunt pretium lacinia. Nullam purus dolor, tempor et lacinia quis, viverra quis erat.</p>
+                    <div class="social">
+                      <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+                      <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="#" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="team">
+                  <img src="{% static 'classroom/upload/xteam_04.jpg.pagespeed.ic.equz9NTtM1.jpg' %}" alt="" class="img-responsive wow fadeInUp">
+                  <div class="team-hover-content">
+                    <h5>Jennifer DEO</h5>
+                    <span>Social Manager</span>
+                    <p>Curabitur ultrices nec est nec vestibulum. Maecenas tincidunt pretium lacinia. Nullam purus dolor, tempor et lacinia quis, viverra quis erat.</p>
+                    <div class="social">
+                      <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+                      <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="#" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section fullscreen paralbackground parallax" style="background-image:url(upload/xparallax_02.jpg.pagespeed.ic.Sx1_qXOliB.jpg)" data-img-width="1627" data-img-height="868" data-diff="100">
+    <div class="overlay green-overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title text-center">
+            <h4>Happy Milistones</h4>
+            <p>We Have Powerful Milistones With Fun Fact Effects</p>
+          </div>
+        </div>
+      </div>
+      <div class="row service-center funfactors">
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list">
+            <i class="stat-count">3312</i>
+            <p><strong>Happy Students</strong></p>
+            <p>Lorem ipsum m dolor sit amet, consectetur adipiing elit.dolor sit amet, consectetur adipiing elit. Integer lorem quam..</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list">
+            <i class="stat-count">450</i>
+            <p><strong>Active Courses</strong></p>
+            <p>Lorem ipsum m dolor sit amet, consectetur adipiing elit.dolor sit amet, consectetur adipiing elit. Integer lorem quam..</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature-list">
+            <i class="stat-count">8443</i>
+            <p><strong>Quiz Completed</strong></p>
+            <p>Lorem ipsum m dolor sit amet, consectetur adipiing elit.dolor sit amet, consectetur adipiing elit. Integer lorem quam..</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="grey section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title text-center">
+            <h4>Blog</h4>
+            <p>Nous avons partagé des articles impressionnants pour vous aidez</p>
+          </div>
+        </div>
+      </div>
+      <div class="row blog-widget">
+        <div class="col-md-4 col-sm-6">
+          <div class="blog-wrapper">
+            <div class="blog-title">
+              <a class="category_title" href="#" title="">Digital Marketing</a>
+              <h2><a href="single.html" title="">Best Learning Management System for Ever</a></h2>
+              <div class="post-meta">
+                <span>
+                  <i class="fa fa-user"></i>
+                  <a href="#">John</a>
+                </span>
+                <span>
+                  <i class="fa fa-tag"></i>
+                  <a href="#">Marketing</a>
+                </span>
+                <span>
+                  <i class="fa fa-comments"></i>
+                  <a href="#">19 Comments</a>
+                </span>
+              </div>
+            </div>
+            <div class="blog-image">
+              <a href="single.html" title=""><img src="{% static 'classroom/upload/xblog_01.jpg.pagespeed.ic.2jVY1j1OMe.jpg' %}" alt="" class="img-responsive"></a>
+            </div>
+            <div class="blog-desc">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since theown printer took.</p>
+              <a href="single.html" class="btn btn-default btn-block">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="blog-wrapper">
+            <div class="blog-title">
+              <a class="category_title" href="#" title="">SEO Marketing</a>
+              <h2><a href="single.html" title="">Best SEO Google System and Algoritmas</a></h2>
+              <div class="post-meta">
+                <span>
+                  <i class="fa fa-user"></i>
+                  <a href="#">Jenny</a>
+                </span>
+                <span>
+                  <i class="fa fa-tag"></i>
+                  <a href="#">SEO</a>
+                </span>
+                <span>
+                  <i class="fa fa-comments"></i>
+                  <a href="#">44 Comments</a>
+                </span>
+              </div>
+            </div>
+            <div class="blog-image">
+              <a href="single.html" title=""><img src="{% static 'classroom/upload/xblog_02.jpg.pagespeed.ic.VhhhBexs2E.jpg' %}" alt="" class="img-responsive"></a>
+            </div>
+            <div class="blog-desc">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since theown printer took.</p>
+              <a href="single.html" class="btn btn-default btn-block">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="blog-wrapper">
+            <div class="blog-title">
+              <a class="category_title" href="#" title="">Commerce Marketing</a>
+              <h2><a href="single.html" title="">Never Forget! WooCommerce is an Amazing Plugin</a></h2>
+              <div class="post-meta">
+                <span>
+                  <i class="fa fa-user"></i>
+                  <a href="#">Bob Doe</a>
+                </span>
+                <span>
+                  <i class="fa fa-tag"></i>
+                  <a href="#">Commerce</a>
+                </span>
+                <span>
+                  <i class="fa fa-comments"></i>
+                  <a href="#">0 Comment</a>
+                </span>
+              </div>
+            </div>
+            <div class="blog-image">
+              <a href="single.html" title=""><img src="{% static 'classroom/upload/xblog_03.jpg.pagespeed.ic.ZGQLz9XvWC.jpg' %}" alt="" class="img-responsive"></a>
+            </div>
+            <div class="blog-desc">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since theown printer took.</p>
+              <a href="single.html" class="btn btn-default btn-block">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="grey section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title text-center">
+            <h4>Nos Clients</h4>
+            <p>Quelque Université qui travaille avec nous et avec nos professeurs</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <img src="{% static 'classroom/upload/xclient_01.png.pagespeed.ic.m5NnlxSzhM.png' %}" alt="" class="img-responsive img-thumbnail">
+        </div>
+        <div class="col-md-2">
+          <img src="{% static 'classroom/upload/xclient_02.png.pagespeed.ic.BsH9V4BqCi.png' %}" alt="" class="img-responsive img-thumbnail">
+        </div>
+        <div class="col-md-2">
+          <img src="{% static 'classroom/upload/xclient_03.png.pagespeed.ic.mxzQrepbL_.png' %}" alt="" class="img-responsive img-thumbnail">
+        </div>
+        <div class="col-md-2">
+          <img src="{% static 'classroom/upload/xclient_04.png.pagespeed.ic.Fx2ObIy0Eb.png' %}" alt="" class="img-responsive img-thumbnail">
+        </div>
+        <div class="col-md-2">
+          <img src="{% static 'classroom/upload/xclient_05.png.pagespeed.ic.GBNy2ra72B.png' %}" alt="" class="img-responsive img-thumbnail">
+        </div>
+        <div class="col-md-2">
+          <img src="{% static 'classroom/upload/xclient_06.png.pagespeed.ic.a_uqmnbFy0.png' %}" alt="" class="img-responsive img-thumbnail">
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

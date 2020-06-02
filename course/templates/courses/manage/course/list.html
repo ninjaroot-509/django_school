@@ -1,0 +1,27 @@
+{% extends "classroom/basepa.html" %}
+{% block title %}My courses{% endblock %}
+{% block content %}
+<div class="container-fluid">
+     <h1>My courses</h1>
+     <div>
+       {% for course in object_list %}
+         <div>
+           <h3>{{ course.titre }}</h3>
+           <p>
+             <a href="{% url 'course:course_edit' course.id %}">Edit</a>
+             <a href="{% url 'course:course_delete' course.id %}">Delete</a>
+             <a href="{% url 'course:course_module_update' course.id %}">Edit modules</a>
+             {% if course.modules.count > 0 %}
+                <a href="{% url 'course:module_content_list' course.modules.first.id %}">Manage content</a>
+             {% endif %}
+           </p>
+         </div>
+       {% empty %}
+         <p>You haven't created any courses yet.</p>
+       {% endfor %}
+       <p>
+         <a href="{% url "course:course_create" %}" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full">Create new
+   course</a>
+</p> </div>
+</div>
+   {% endblock %}

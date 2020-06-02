@@ -1,0 +1,67 @@
+ {% extends 'classroom/basepa.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="container">
+    <hr>
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+            {% if user.profile.photo %}
+          <img src="{{ user.profile.photo.url }}" class="avatar img-circle" alt="avatar" style="width: 170px; height: 200">
+          {% else %}
+          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+          {% endif %}
+          <h6 style="margin-top: 20px">{{ user.profile.bio }}</h6>
+        </div>
+      </div>
+
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+          <br>
+        <h3>Personel info</h3>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Nom:</label>
+            <div class="col-lg-8">
+              <p class="form-control">{{ user.last_name }}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Prenom:</label>
+            <div class="col-lg-8">
+              <p class="form-control">{{ user.first_name }}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">pseudo:</label>
+            <div class="col-lg-8">
+              <p class="form-control">{{ user.username }}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <p class="form-control">{{ user.email }}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">bio:</label>
+            <div class="col-lg-8">
+              <p class="form-control">{{ user.profile.bio }}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">telephone:</label>
+            <div class="col-md-8">
+              <p class="form-control">{{ user.profile.numero }}</p>
+            </div>
+          </div>
+           <div class="form-group">
+            <div class="col-md-8">
+              <a href="{% url 'profile-update' %}"><button class="btn btn-success">Editer</button></a>
+            </div>
+      </div>
+  </div>
+</div>
+</div>
+{% endblock %}

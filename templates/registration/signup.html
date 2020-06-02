@@ -1,0 +1,51 @@
+{% extends 'classroom/basepa.html' %}
+{% block titled %}La-Belle-Lune | Type compte{% endblock titled %}
+{% load static %}
+{% block content %}
+
+<section class="grey section">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="section-title text-center">
+<h4>Choisissez votre personnaliter</h4>
+<p style="color:red">Selectioner votre type compte</p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-12">
+<div class="testimonial">
+<a href="{% url 'student_signup' %}"><img class="alignleft img-circle" src="{% static 'classroom/upload/xstudent_01.png.pagespeed.ic.756JwMcqdq.png' %}" alt="Image"></a>
+<p>Lorem Ipsum is simply dummy text of the printing and industry. </p>
+<div class="testimonial-meta">
+<a href="{% url 'student_signup' %}"><h4>Eleves</h4></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-12">
+<div class="testimonial">
+<a href="{% url 'kinder_signup' %}"><img class="alignleft img-circle" src="{% static 'classroom/upload/xstudent_02.png.pagespeed.ic.y-PM-y4pVj.png' %}" alt="Image"></a>
+<p>Lorem Ipsum is simply dummy text of the most popular items.</p>
+<div class="testimonial-meta">
+<a href="{% url 'kinder_signup' %}"><h4>Parent pour enfant de kinder</h4></a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-12">
+<div class="testimonial">
+<a href="{% url 'teacher_signup' %}"><img class="alignleft img-circle" src="{% static 'classroom/upload/xstudent_03.png.pagespeed.ic.uCQY3WNMCJ.png' %}" alt="Image"></a>
+<p>Lorem Ipsum is simply dummy text of the printing.</p>
+<div class="testimonial-meta">
+<a href="{% url 'teacher_signup' %}"><h4>Professeur</h4></a>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center alert alert-warning">
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since<br> the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+</div>
+</div>
+</section>
+
+{% endblock %}

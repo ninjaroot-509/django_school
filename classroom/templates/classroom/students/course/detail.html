@@ -1,0 +1,119 @@
+{% extends "classroom/basepa.html" %}
+   {% block titled %}
+       {{course.titre}} {{ module.titre }}
+   {% endblock %}
+   {% block content %}
+   
+<section class="grey page-title">
+<div class="container">
+<div class="row">
+<div class="col-md-6 text-left">
+<h1>{{course.titre}} 's cours</h1>
+</div>
+<div class="col-md-6 text-right">
+<div class="bread">
+<ol class="breadcrumb">
+<li><a href="/">Acceuil</a></li>
+<li><a href="#">{{course.titre}}</a></li>
+<li class="active">{{module.titre}}</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white section">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="content-widget">
+<div class="widget-title">
+<h4>{{ module.titre }}</h4>
+<hr>
+</div>
+<div class="tabbed-widget">
+<ul class="nav nav-tabs">
+{% for m in object.modules.all %}
+<li data-id="{{ m.id }}" {% if m == module %} class="active" {% endif %}><a href="{% url 'students:student_course_detail_module' object.id m.id %}">module {{ m.order|add:1 }}</a></li>
+{% endfor %}
+</ul>
+<div class="tab-content">
+
+<div class="tab-pane fade in active">
+<p>{{module.description}}</p>
+</div>
+{% for content in module.contents.all %}
+<div class="tab-pane fade in active">
+{% with  item=content.item %}
+<h2>{{item.titre}}</h2>
+{{item.render}}
+{% endwith %}
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="invis1">
+<div class="row">
+<div class="col-md-6">
+<div class="content-widget">
+<div class="widget-title">
+<h4>Accordion Widget</h4>
+<hr>
+</div>
+<div class="accordion-widget">
+<div class="accordion-toggle-2">
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-title">
+<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour">
+<h3>Why LearnPLUS ? <i class="indicator fa fa-plus"></i></h3>
+</a>
+</div>
+</div>
+<div id="collapseFour" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-title">
+<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFive">
+<h3>What IS LearnPLUS ? <i class="indicator fa fa-minus"></i></h3>
+</a>
+</div>
+</div>
+<div id="collapseFive" class="panel-collapse collapse in">
+<div class="panel-body">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-title">
+<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseSix">
+<h3>What is LearnPLUS Features ? <i class="indicator fa fa-plus"></i></h3>
+</a>
+</div>
+</div>
+<div id="collapseSix" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+   {% endblock %}

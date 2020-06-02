@@ -1,0 +1,63 @@
+{% load static %}
+{% include 'base_quiz.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="{% static 'img/kit/free/apple-icon.png' %}">
+    <link rel="icon" href="{% static 'quiz/quiza/img/kit/free/favicon.png' %}">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="{% static 'quiz/quiza/css/material-kit.min.css' %}" rel="stylesheet">
+    <style>
+    </style>
+    {% block head %}
+    {% endblock %}
+
+
+    {% block style %}
+    {% endblock %}
+</head>
+
+<body style="background-color:#FFF;">
+        {% block nav %}
+        {% endblock %}
+
+        {% block content %}
+
+
+        {% endblock %}
+
+    <!--   Core JS Files   -->
+    <script src="{% static 'quiz/quiza/js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'quiz/quiza/js/core/popper.min.js' %}"></script>
+    <script src="{% static 'quiz/quiza/js/bootstrap-material-design.js' %}"></script>
+    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+    <script src="{% static 'quiz/quiza/js/plugins/moment.min.js' %}"></script>
+    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    <script src="{% static 'quiz/quiza/js/plugins/bootstrap-datetimepicker.min.js' %}"></script>
+    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="{% static 'quiz/quiza/js/plugins/nouislider.min.js' %}"></script>
+    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+    <script src="{% static 'quiz/quiza/js/material-kit.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+
+            //init DateTimePickers
+            materialKit.initFormExtendedDatetimepickers();
+
+            // Sliders Init
+            // materialKit.initSliders();
+        });
+    </script>
+    {% block script %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+{% load static %}
+<div id="loader">
+    <div class="loader-container">
+      <img src="{% static 'classroom/images/site.gif' %}" alt="" class="loader-site">
+    </div>
+  </div>
+  <div id="wrapper">
+    <div class="topbar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-left">
+            <p><i class="fa fa-graduation-cap"></i> Le meilleur modèle de gestion de l'apprentissage pour tous.</p>
+          </div>
+          <div class="col-md-6 text-right">
+            <ul class="list-inline">
+              <li>
+                <a class="social" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="social" href="#"><i class="fa fa-twitter"></i></a>
+                <a class="social" href="#"><i class="fa fa-google-plus"></i></a>
+                <a class="social" href="#"><i class="fa fa-linkedin"></i></a>
+              </li>
+              {% if request.user.is_authenticated %}
+              {% else %}
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-lock"></i> S'identifier & S'enregistrer</a>
+                <div class="dropdown-menu">
+                  <form method="post" action="{% url 'login' %}" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    <div class="form-title">
+                      <h4>Zone de connexion</h4>
+                      <hr>
+                    </div>
+                    <input class="form-control" type="text" name="name" id="id_name" placeholder="Nom d'utilisateur">
+                    <div class="formpassword">
+                      <input class="form-control" type="password" name="password" id="id_password" placeholder="******">
+                    </div>
+                    <div class="clearfix"></div>
+                    <button type="submit" class="btn btn-block btn-primary">S'identifier</button>
+                    <hr>
+                    <h4><a href="#">Mot de passe oublie</a></h4>
+                    <h4><a href="{% url 'signup' %}">Créer un compte</a></h4>
+                  </form>
+                </div>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="header">
+      <div class="container">
+        <div class="hovermenu ttmenu">
+          <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" style="backgroun-color:white">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="fa fa-bars"></span>
+              </button>
+              <div class="logo">
+                <a class="navbar-brand" href="/"><img src="{% static 'classroom/images/xlogo.png.pagespeed.ic.vap6Ukaf0i.png' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/">Acceuil</a></li>
+                {% if request.user.is_authenticated and user.is_teacher %}
+                <li class="dropdown ttmenu-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Cours <b class="fa fa-angle-down"></b></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <div class="ttmenu-content">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="box">
+                              <ul>
+                                <li><a href="{% url 'course:manage_course_list' %}">voir la list de mes cours</a></li>
+                                <li><a href="{% url 'course:course_create' %}">Ajouter un cours</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown ttmenu-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Examen <b class="fa fa-angle-down"></b></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <div class="ttmenu-content">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="box">
+                              <ul>
+                                <li><a href="{% url 'teachers:quiz_add' %}">Ajouter un examen</a></li>
+                                <li><a href="{% url 'teachers:quiz_change_list' %}">voir mes Examens</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                {% elif user.is_student %}
+                  <li><a href="{% url 'students:student_course_list' %}">Mes Cours</a></li>
+                  {% else %}
+                  <li><a href="{% url 'login' %}">Mes Cours</a></li>
+                {% endif %}
+                {% if request.user.is_authenticated and user.is_student %}
+                <li><a href="{% url 'students:quiz_list' %}">Examen</a></li>
+                {% endif %}
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                {% endif %}
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_authenticated %}
+                  <li><a class="btn btn-primary" href="{% url 'logout' %}"><i class="fa fa-sign-in"></i> Deconnecter</a></li>
+                {% else %}
+                  <li><a class="btn btn-primary" href="{% url 'signup' %}"><i class="fa fa-sign-in"></i> S'inscrire maintenant</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>

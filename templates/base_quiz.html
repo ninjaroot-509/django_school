@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bienvenue {{ user.username }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'classroom/eleves/css/style.css' %}">
+  </head>
+  <body>
+	  <div class="py-2 bg-primary">
+    	<div class="container">
+    		<div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
+	    		<div class="col-lg-12 d-block">
+		    		<div class="row d-flex">
+		    			<div class="col-md-5 pr-4 d-flex topper align-items-center">
+			    			<a href="#"><div class="icon bg-fifth mr-2 d-flex justify-content-center align-items-center"><span class="icon-map"></span></div></a>
+						    <a href="#"><span class="text">xx Street, Gonaives, Haiti</span></a>
+					    </div>
+					    <a href="mailto:stanleycastin19@gmail.com"><div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon bg-secondary mr-2 d-flex justify-content-center align-items-center">
+					    		<span class="icon-paper-plane"></span>
+
+					    	</div>
+						    <span class="text">stanleycastin19@email.com</span>
+					    </div>
+					    </a>
+					    <a href="tel:+509 43208550"><div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon bg-tertiary mr-2 d-flex justify-content-center align-items-center">
+					    		 <span class="icon-phone2"></span></div>
+						    <span class="text">(509) 43208550</span>
+					    </div></a>
+				    </div>
+			    </div>
+		    </div>
+		  </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
+	    <div class="container d-flex align-items-center">
+	    	<a class="navbar-brand" href="index.html">Institution...</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item"><a href="{% url 'home' %}" class="nav-link pl-0">Acceuil</a></li>
+	        	<li class="nav-item active"><a href="{% url 'students:quiz_list' %}" class="nav-link">Quiz</a></li>
+	        	<li class="nav-item"><a href="{% url 'about' %}" class="nav-link">A-propos</a></li>
+	        	<li class="nav-item"><a href="{% url 'program' %}" class="nav-link">Programmes</a></li>
+	        	<li class="nav-item"><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+            {% if user.is_authenticated %}
+	          <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">hello, <b>{{ user.username }}</b></a></li>
+            {% endif %}
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+            <div class="card mb-3">
+            <div class="card-body">
+              {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              {% endfor %}
+              {% block content %}
+              {% endblock %}
+            </div>
+          </div>
+
+  <script src="{% static 'classroom/eleves/js/jquery.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/popper.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/aos.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'classroom/eleves/js/google-map.js' %}"></script>
+  <script src="{% static 'classroom/eleves/js/main.js' %}"></script>
+
+  </body>
+</html>

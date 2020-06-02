@@ -1,0 +1,503 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bienvenue {{ user.username }}</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Unicat project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'classroom/parents/styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'classroom/parents/plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'classroom/parents/plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'classroom/parents/plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'classroom/parents/plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'classroom/parents/styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'classroom/parents/styles/responsive.css' %}">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header">
+
+		<!-- Top Bar -->
+		<div class="top_bar">
+			<div class="top_bar_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+								<ul class="top_bar_contact_list">
+									<li><div class="question">infos?</div></li>
+									<li>
+										<i class="fa fa-phone" aria-hidden="true"></i>
+										<div>(509) <b>43208550</b></div>
+									</li>
+									<li>
+										<i class="fa fa-envelope-o" aria-hidden="true"></i>
+										<div>stanleycastin19@gmail.com</div>
+									</li>
+								</ul>
+								<div class="top_bar_login ml-auto">
+									<div class="login_button"><a href="{% url 'logout' %}">Deconnecter</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Header Content -->
+		<div class="header_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="logo_container">
+								<a href="#">
+									<div class="logo_text">institution<span>...</span></div>
+								</a>
+							</div>
+							<nav class="main_nav_contaner ml-auto">
+								<ul class="main_nav">
+									<li class="active"><a href="#">Acceuil</a></li>
+						        	<li><a href="{% url 'students:quiz_list' %}">Quiz</a></li>
+						        	<li><a href="{% url 'about' %}">A-propos</a></li>
+						        	<li><a href="{% url 'program' %}">Programmes</a></li>
+						        	<li><a href="{% url 'blog' %}">Blog</a></li>
+						          <li><a href="{% url 'contact' %}">Contact</a></li>
+						          <li><a href="{% url 'profile' %}">hello, <b>{{ user.username }}</b></a></li>
+								</ul>
+
+								<!-- Hamburger -->
+								<div class="hamburger menu_mm">
+									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+								</div>
+							</nav>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="search">
+			<form action="#" class="header_search_form menu_mm">
+				<input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+				<button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+					<i class="fa fa-search menu_mm" aria-hidden="true"></i>
+				</button>
+			</form>
+		</div>
+		<nav class="menu_nav">
+			<ul class="menu_mm">
+				<li class="active"><a href="#">Acceuil</a></li>
+	        	<li><a href="{% url 'students:quiz_list' %}">Quiz</a></li>
+	        	<li><a href="{% url 'about' %}">A-propos</a></li>
+	        	<li><a href="{% url 'program' %}">Programmes</a></li>
+	        	<li><a href="{% url 'blog' %}">Blog</a></li>
+		          <li><a href="{% url 'contact' %}">Contact</a></li>
+		          <li><a href="{% url 'profile' %}">hello, <b>{{ user.username }}</b></a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_slider_container">
+
+			<!-- Home Slider -->
+			<div class="owl-carousel owl-theme home_slider">
+
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({% static 'classroom/parents/images/home_slider_1.jpg' %})"></div>
+					<div class="home_slider_content">
+						<div class="container">
+							<div class="row">
+								<div class="col text-center">
+									<div class="home_slider_title">Bienvenue</div>
+									<div class="home_slider_subtitle">{{ user.first_name }}</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({% static 'classroom/parents/images/home_slider_1.jpg' %})"></div>
+					<div class="home_slider_content">
+						<div class="container">
+							<div class="row">
+								<div class="col text-center">
+									<div class="home_slider_title">Bienvenue</div>
+									<div class="home_slider_subtitle">{{ user.first_name }}</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Home Slider Nav -->
+
+		<div class="home_slider_nav home_slider_prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+		<div class="home_slider_nav home_slider_next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+	</div>
+
+	<!-- Features -->
+
+	<div class="features">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<h2 class="section_title">Encore Bienvenue sur ... site</h2>
+						<div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+					</div>
+				</div>
+			</div>
+			<div class="row features_row">
+
+				<!-- Features Item -->
+				<div class="col-lg-3 feature_col">
+					<div class="feature text-center trans_400">
+						<div class="feature_icon"><img src="{% static 'classroom/parents/images/icon_1.png' %}" alt=""></div>
+						<h3 class="feature_title">les Experts</h3>
+						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
+					</div>
+				</div>
+
+				<!-- Features Item -->
+				<div class="col-lg-3 feature_col">
+					<div class="feature text-center trans_400">
+						<div class="feature_icon"><img src="{% static 'classroom/parents/images/icon_2.png' %}" alt=""></div>
+						<h3 class="feature_title">Livres & Bibliotheques</h3>
+						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
+					</div>
+				</div>
+
+				<!-- Features Item -->
+				<div class="col-lg-3 feature_col">
+					<div class="feature text-center trans_400">
+						<div class="feature_icon"><img src="{% static 'classroom/parents/images/icon_3.png' %}" alt=""></div>
+						<h3 class="feature_title">Best Courses</h3>
+						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
+					</div>
+				</div>
+
+				<!-- Features Item -->
+				<div class="col-lg-3 feature_col">
+					<div class="feature text-center trans_400">
+						<div class="feature_icon"><img src="{% static 'classroom/parents/images/icon_4.png' %}" alt=""></div>
+						<h3 class="feature_title">Certificats</h3>
+						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Popular Courses -->
+
+	<!-- Counter -->
+
+	<div class="counter">
+		<div class="counter_background" style="background-image:url({% static 'classroom/parents/images/counter_background.jpg' %})"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="counter_content">
+						<h2 class="counter_title">Preparation des examens</h2>
+						<div class="counter_text"><p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dumy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
+
+						<!-- Milestones -->
+
+						<div class="milestones d-flex flex-md-row flex-column align-items-center justify-content-between">
+
+							<!-- Milestone -->
+							<div class="milestone">
+								<div class="milestone_counter" data-end-value="4">0</div>
+								<div class="milestone_text">mois</div>
+							</div>
+
+							<!-- Milestone -->
+							<div class="milestone">
+								<div class="milestone_counter" data-end-value="8" data-sign-after="">0</div>
+								<div class="milestone_text">jours</div>
+							</div>
+
+							<!-- Milestone -->
+							<div class="milestone" style="display: none;">
+								<div class="milestone_counter" data-end-value="8" data-sign-after="">0</div>
+								<div class="milestone_text">jours</div>
+							</div>
+
+							<!-- Milestone -->
+							<div class="milestone" style="display: none;">
+								<div class="milestone_counter" data-end-value="8" data-sign-after="">0</div>
+								<div class="milestone_text">jours</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="counter_form">
+				<div class="row fill_height">
+					<div class="col fill_height">
+
+							<h2 style="margin-top: 31px">Avis Important</h2>
+
+							<div class="counter_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Events -->
+{% if posts %}
+	<div class="events">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<h2 class="section_title">Articles Populaires</h2>
+						<div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+					</div>
+				</div>
+			</div>
+			<div class="row events_row">
+
+				{% for post in posts %}
+				<!-- Event -->
+				<div class="col-lg-4 event_col">
+					<div class="event event_left">
+						<div class="event_image"><img src="{{ post.post_logo.url }}" alt=""></div>
+						<div class="event_body d-flex flex-row align-items-start justify-content-start">
+							<div class="event_date">
+								<div class="d-flex flex-column align-items-center justify-content-center trans_200">
+									<div class="event_day trans_200">21</div>
+									<div class="event_month trans_200">Aug</div>
+								</div>
+							</div>
+							<div class="event_content">
+								<div class="event_title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></div>
+								<div class="event_info_container">
+									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>{{ post.created_on|timesince }}</span></div>
+									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>{{ post.comments.count }}</span></div>
+									<div class="event_text">
+										<p>{{ post.content|truncatewords:10|linebreaks }}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="courses_button trans_200"><a href="{% url 'blog' %}">Lire Plus</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+	<!-- Team -->
+{% if tutors %}
+	<div class="team">
+		<div class="team_background parallax-window" data-parallax="scroll" data-image-src="{% static 'classroom/parents/images/team_background.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<h2 class="section_title">Galeries Des Proffeseurs</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row team_row">
+
+				{% for tutor in tutors %}
+				<!-- Team Item -->
+				<div class="col-lg-3 col-md-6 team_col">
+					<div class="team_item">
+						<div class="team_image"><img src="{{ tutor.photo.url }}" alt=""></div>
+						<div class="team_body">
+							<div class="team_title"><a href="#">{{ tutor.name }}</a></div>
+							<div class="team_subtitle">{{ tutor.prof }}</div>
+							<div class="social_list">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="courses_button trans_200"><a href="{% url 'about' %}">Voir Plus</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="newsletter_background parallax-window" data-parallax="scroll" data-image-src="{% static 'classroom/parents/images/newsletter.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="newsletter_container d-flex flex-lg-row flex-column align-items-center justify-content-start">
+
+						<!-- Newsletter Content -->
+						<div class="newsletter_content text-lg-left text-center">
+							<div class="newsletter_title">Pour toutes changement ou autres informations</div>
+							<div class="newsletter_subtitle">Abornez vous a L'institution</div>
+						</div>
+
+						<!-- Newsletter Form -->
+						<div class="newsletter_form_container ml-lg-auto">
+							<form action="#" id="newsletter_form" class="newsletter_form d-flex flex-row align-items-center justify-content-center">
+								<input type="email" class="newsletter_input" placeholder="Entrer Votre Addresse Email" required="required">
+								<button type="submit" class="newsletter_button">S'aborner</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="footer_background" style="background-image:url({% static 'classroom/parents/images/footer_background.png' %})"></div>
+		<div class="container">
+			<div class="row footer_row">
+				<div class="col">
+					<div class="footer_content">
+						<div class="row">
+
+							<div class="col-lg-4 footer_col">
+
+								<!-- Footer About -->
+								<div class="footer_section footer_about">
+									<div class="footer_logo_container">
+										<a href="#">
+											<div class="footer_logo_text">Institution<span>...</span></div>
+										</a>
+									</div>
+									<div class="footer_about_text">
+										<p>Lorem ipsum dolor sit ametium, consectetur adipiscing elit.</p>
+									</div>
+									<div class="footer_social">
+										<ul>
+											<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+											<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+											<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-lg-4 footer_col">
+
+								<!-- Footer Contact -->
+								<div class="footer_section footer_contact">
+									<div class="footer_title">Contacter Nous</div>
+									<div class="footer_contact_info">
+										<ul>
+											<li>Email: Info@gmail.com</li>
+											<li>Phone:  +(509) xx</li>
+											<li>lorem</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-lg-3 footer_col">
+
+								<!-- Footer links -->
+								<div class="footer_section footer_links">
+									<div class="footer_title">Instruction</div>
+									<div class="footer_links_container">
+										<ul>
+											<li class="active"><a href="#">Acceuil</a></li>
+								        	<li><a href="{% url 'students:quiz_list' %}">Quiz</a></li>
+								        	<li><a href="{% url 'about' %}">A-propos</a></li>
+								        	<li><a href="{% url 'program' %}">Programmes</a></li>
+								        	<li><a href="{% url 'blog' %}">Blog</a></li>
+									          <li><a href="{% url 'contact' %}">Contact</a></li>
+									          <li><a href="{% url 'logout' %}"><b>Deconnecter</b></a></li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row copyright_row">
+				<div class="col">
+					<div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-start">
+						<div class="cr_text">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <a href="https://ninja509.pythonanywhere.com/A-propos/" target="_blank"><b>Ninja Root
+  <i class="icon-heart" aria-hidden="true"></i></b></a>
+   by <a href="" target="_blank">Castin Stanley</a>
+</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<script src="{% static 'classroom/parents/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'classroom/parents/styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'classroom/parents/styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'classroom/parents/plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'classroom/parents/plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'classroom/parents/plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'classroom/parents/plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'classroom/parents/plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'classroom/parents/plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'classroom/parents/plugins/easing/easing.js' %}"></script>
+<script src="{% static 'classroom/parents/plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'classroom/parents/js/custom.js' %}"></script>
+</body>
+</html>
